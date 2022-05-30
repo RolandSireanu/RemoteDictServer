@@ -1,0 +1,7 @@
+/home/roland/work/RemoteDictionary/RemoteDictionary/remoteDictServer/build/CMakeFiles/RemoteDictionaryServer.dir
+/home/roland/work/RemoteDictionary/RemoteDictionary/remoteDictServer/build/CMakeFiles/edit_cache.dir
+/home/roland/work/RemoteDictionary/RemoteDictionary/remoteDictServer/build/CMakeFiles/rebuild_cache.dir
+/home/roland/work/RemoteDictionary/RemoteDictionary/remoteDictServer/build/headers/CMakeFiles/edit_cache.dir
+/home/roland/work/RemoteDictionary/RemoteDictionary/remoteDictServer/build/headers/CMakeFiles/rebuild_cache.dir
+/home/roland/work/RemoteDictionary/RemoteDictionary/remoteDictServer/build/sources/CMakeFiles/edit_cache.dir
+/home/roland/work/RemoteDictionary/RemoteDictionary/remoteDictServer/build/sources/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package communication;
+
+message Request
+{
+    enum TypeOfRequest 
+    {
+        GET_REQUEST = 0;
+        SET_REQUEST = 1;
+        STATS_REQUEST = 2;
+    }
+
+    message GetRequest 
+    {
+        string key = 1;
+    }
+
+    message SetRequest 
+    {
+        string key = 1;
+        string value = 2;
+    }
+
+    TypeOfRequest requestType = 1;
+    GetRequest get = 2;
+    SetRequest set = 3;
+
+}
+
+message Response
+{
+    enum TypeOfResponse 
+    {
+        GET_RESPONSE = 0;
+        SET_RESPONSE = 1;
+        STATS_RESPONSE = 2;
+    }
+
+    message GetResponse 
+    {
+        bool success = 1;
+        string value = 2;        
+    }
+
+    message SetResponse 
+    {
+        bool success = 1;
+        string failure_message = 2;
+    }
+
+    message StatsResponse 
+    {
+        uint32 nr_of_get_operations = 1;
+        uint32 successful_get_operations = 2;
+        uint32 failed_get_operations = 3;
+    }
+
+    TypeOfResponse responseType = 1;
+    GetResponse getResp = 2;
+    SetResponse setResp = 3;
+    StatsResponse statResp = 4;
+
+}
+

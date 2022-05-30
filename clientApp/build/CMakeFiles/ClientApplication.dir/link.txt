@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -rdynamic CMakeFiles/ClientApplication.dir/RemoteDictClient.cpp.o -o ClientApplication   -L/home/roland/work/RemoteDictionary/RemoteDictionary/clientApp/../remoteDictApi/lib  -Wl,-rpath,/home/roland/work/RemoteDictionary/RemoteDictionary/clientApp/../remoteDictApi/lib -lRemoteDictApi 

@@ -78,17 +78,13 @@ int main(int ac, char** av)
                 fflush(stdout);
 
                 int connfd = accept(listenfd, (SocketAddress*)&addr, &addr_len);                        
-                tsQueue.push(connfd);  
-                std::cout << "Accept connection and add to queue " << connfd << std::endl;            
+                tsQueue.push(connfd);   
             }
             catch (std::exception const& e) 
             {
                 std::cout << "Exception in main thread " << e.what() << std::endl;
             } 
-        }
-
-        std::cout << "Exit now from server " << std::endl;
-
+        }        
     return 0;
     #endif
 }

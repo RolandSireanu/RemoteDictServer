@@ -185,7 +185,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_communication_2eproto::offsets
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::communication::Response_GetResponse, success_),
   PROTOBUF_FIELD_OFFSET(::communication::Response_GetResponse, value_),
-  PROTOBUF_FIELD_OFFSET(::communication::Response_GetResponse, failure_message_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::communication::Response_SetResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -216,9 +215,9 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 6, -1, sizeof(::communication::Request_SetRequest)},
   { 13, -1, sizeof(::communication::Request)},
   { 21, -1, sizeof(::communication::Response_GetResponse)},
-  { 29, -1, sizeof(::communication::Response_SetResponse)},
-  { 36, -1, sizeof(::communication::Response_StatsResponse)},
-  { 44, -1, sizeof(::communication::Response)},
+  { 28, -1, sizeof(::communication::Response_SetResponse)},
+  { 35, -1, sizeof(::communication::Response_StatsResponse)},
+  { 43, -1, sizeof(::communication::Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -240,21 +239,21 @@ const char descriptor_table_protodef_communication_2eproto[] PROTOBUF_SECTION_VA
   "est\032\031\n\nGetRequest\022\013\n\003key\030\001 \001(\t\032(\n\nSetReq"
   "uest\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"D\n\rType"
   "OfRequest\022\017\n\013GET_REQUEST\020\000\022\017\n\013SET_REQUES"
-  "T\020\001\022\021\n\rSTATS_REQUEST\020\002\"\251\004\n\010Response\022<\n\014r"
+  "T\020\001\022\021\n\rSTATS_REQUEST\020\002\"\220\004\n\010Response\022<\n\014r"
   "esponseType\030\001 \001(\0162&.communication.Respon"
   "se.TypeOfResponse\0224\n\007getResp\030\002 \001(\0132#.com"
   "munication.Response.GetResponse\0224\n\007setRe"
   "sp\030\003 \001(\0132#.communication.Response.SetRes"
   "ponse\0227\n\010statResp\030\004 \001(\0132%.communication."
-  "Response.StatsResponse\032F\n\013GetResponse\022\017\n"
-  "\007success\030\001 \001(\010\022\r\n\005value\030\002 \001(\t\022\027\n\017failure"
-  "_message\030\003 \001(\t\0327\n\013SetResponse\022\017\n\007success"
-  "\030\001 \001(\010\022\027\n\017failure_message\030\002 \001(\t\032o\n\rStats"
-  "Response\022\034\n\024nr_of_get_operations\030\001 \001(\r\022!"
-  "\n\031successful_get_operations\030\002 \001(\r\022\035\n\025fai"
-  "led_get_operations\030\003 \001(\r\"H\n\016TypeOfRespon"
-  "se\022\020\n\014GET_RESPONSE\020\000\022\020\n\014SET_RESPONSE\020\001\022\022"
-  "\n\016STATS_RESPONSE\020\002b\006proto3"
+  "Response.StatsResponse\032-\n\013GetResponse\022\017\n"
+  "\007success\030\001 \001(\010\022\r\n\005value\030\002 \001(\t\0327\n\013SetResp"
+  "onse\022\017\n\007success\030\001 \001(\010\022\027\n\017failure_message"
+  "\030\002 \001(\t\032o\n\rStatsResponse\022\034\n\024nr_of_get_ope"
+  "rations\030\001 \001(\r\022!\n\031successful_get_operatio"
+  "ns\030\002 \001(\r\022\035\n\025failed_get_operations\030\003 \001(\r\""
+  "H\n\016TypeOfResponse\022\020\n\014GET_RESPONSE\020\000\022\020\n\014S"
+  "ET_RESPONSE\020\001\022\022\n\016STATS_RESPONSE\020\002b\006proto"
+  "3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_communication_2eproto_deps[1] = {
 };
@@ -269,7 +268,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_com
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_communication_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_communication_2eproto = {
-  false, false, descriptor_table_protodef_communication_2eproto, "communication.proto", 906,
+  false, false, descriptor_table_protodef_communication_2eproto, "communication.proto", 881,
   &descriptor_table_communication_2eproto_once, descriptor_table_communication_2eproto_sccs, descriptor_table_communication_2eproto_deps, 7, 0,
   schemas, file_default_instances, TableStruct_communication_2eproto::offsets,
   file_level_metadata_communication_2eproto, 7, file_level_enum_descriptors_communication_2eproto, file_level_service_descriptors_communication_2eproto,
@@ -1093,11 +1092,6 @@ Response_GetResponse::Response_GetResponse(const Response_GetResponse& from)
     value_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_value(),
       GetArena());
   }
-  failure_message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_failure_message().empty()) {
-    failure_message_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_failure_message(),
-      GetArena());
-  }
   success_ = from.success_;
   // @@protoc_insertion_point(copy_constructor:communication.Response.GetResponse)
 }
@@ -1105,7 +1099,6 @@ Response_GetResponse::Response_GetResponse(const Response_GetResponse& from)
 void Response_GetResponse::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Response_GetResponse_communication_2eproto.base);
   value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  failure_message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   success_ = false;
 }
 
@@ -1118,7 +1111,6 @@ Response_GetResponse::~Response_GetResponse() {
 void Response_GetResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   value_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  failure_message_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void Response_GetResponse::ArenaDtor(void* object) {
@@ -1143,7 +1135,6 @@ void Response_GetResponse::Clear() {
   (void) cached_has_bits;
 
   value_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  failure_message_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   success_ = false;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -1169,15 +1160,6 @@ const char* Response_GetResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAM
           auto str = _internal_mutable_value();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "communication.Response.GetResponse.value"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string failure_message = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          auto str = _internal_mutable_failure_message();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "communication.Response.GetResponse.failure_message"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1225,16 +1207,6 @@ failure:
         2, this->_internal_value(), target);
   }
 
-  // string failure_message = 3;
-  if (this->failure_message().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_failure_message().data(), static_cast<int>(this->_internal_failure_message().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "communication.Response.GetResponse.failure_message");
-    target = stream->WriteStringMaybeAliased(
-        3, this->_internal_failure_message(), target);
-  }
-
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1256,13 +1228,6 @@ size_t Response_GetResponse::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_value());
-  }
-
-  // string failure_message = 3;
-  if (this->failure_message().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_failure_message());
   }
 
   // bool success = 1;
@@ -1304,9 +1269,6 @@ void Response_GetResponse::MergeFrom(const Response_GetResponse& from) {
   if (from.value().size() > 0) {
     _internal_set_value(from._internal_value());
   }
-  if (from.failure_message().size() > 0) {
-    _internal_set_failure_message(from._internal_failure_message());
-  }
   if (from.success() != 0) {
     _internal_set_success(from._internal_success());
   }
@@ -1334,7 +1296,6 @@ void Response_GetResponse::InternalSwap(Response_GetResponse* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   value_.Swap(&other->value_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  failure_message_.Swap(&other->failure_message_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   swap(success_, other->success_);
 }
 

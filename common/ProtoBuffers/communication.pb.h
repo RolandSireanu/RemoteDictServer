@@ -802,7 +802,6 @@ class Response_GetResponse PROTOBUF_FINAL :
 
   enum : int {
     kValueFieldNumber = 2,
-    kFailureMessageFieldNumber = 3,
     kSuccessFieldNumber = 1,
   };
   // string value = 2;
@@ -830,31 +829,6 @@ class Response_GetResponse PROTOBUF_FINAL :
   std::string* _internal_mutable_value();
   public:
 
-  // string failure_message = 3;
-  void clear_failure_message();
-  const std::string& failure_message() const;
-  void set_failure_message(const std::string& value);
-  void set_failure_message(std::string&& value);
-  void set_failure_message(const char* value);
-  void set_failure_message(const char* value, size_t size);
-  std::string* mutable_failure_message();
-  std::string* release_failure_message();
-  void set_allocated_failure_message(std::string* failure_message);
-  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
-  "    string fields are deprecated and will be removed in a"
-  "    future release.")
-  std::string* unsafe_arena_release_failure_message();
-  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
-  "    string fields are deprecated and will be removed in a"
-  "    future release.")
-  void unsafe_arena_set_allocated_failure_message(
-      std::string* failure_message);
-  private:
-  const std::string& _internal_failure_message() const;
-  void _internal_set_failure_message(const std::string& value);
-  std::string* _internal_mutable_failure_message();
-  public:
-
   // bool success = 1;
   void clear_success();
   bool success() const;
@@ -872,7 +846,6 @@ class Response_GetResponse PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr value_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr failure_message_;
   bool success_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_communication_2eproto;
@@ -1980,87 +1953,6 @@ inline void Response_GetResponse::unsafe_arena_set_allocated_value(
   value_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       value, GetArena());
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:communication.Response.GetResponse.value)
-}
-
-// string failure_message = 3;
-inline void Response_GetResponse::clear_failure_message() {
-  failure_message_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline const std::string& Response_GetResponse::failure_message() const {
-  // @@protoc_insertion_point(field_get:communication.Response.GetResponse.failure_message)
-  return _internal_failure_message();
-}
-inline void Response_GetResponse::set_failure_message(const std::string& value) {
-  _internal_set_failure_message(value);
-  // @@protoc_insertion_point(field_set:communication.Response.GetResponse.failure_message)
-}
-inline std::string* Response_GetResponse::mutable_failure_message() {
-  // @@protoc_insertion_point(field_mutable:communication.Response.GetResponse.failure_message)
-  return _internal_mutable_failure_message();
-}
-inline const std::string& Response_GetResponse::_internal_failure_message() const {
-  return failure_message_.Get();
-}
-inline void Response_GetResponse::_internal_set_failure_message(const std::string& value) {
-  
-  failure_message_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
-}
-inline void Response_GetResponse::set_failure_message(std::string&& value) {
-  
-  failure_message_.Set(
-    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:communication.Response.GetResponse.failure_message)
-}
-inline void Response_GetResponse::set_failure_message(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  failure_message_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
-              GetArena());
-  // @@protoc_insertion_point(field_set_char:communication.Response.GetResponse.failure_message)
-}
-inline void Response_GetResponse::set_failure_message(const char* value,
-    size_t size) {
-  
-  failure_message_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:communication.Response.GetResponse.failure_message)
-}
-inline std::string* Response_GetResponse::_internal_mutable_failure_message() {
-  
-  return failure_message_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline std::string* Response_GetResponse::release_failure_message() {
-  // @@protoc_insertion_point(field_release:communication.Response.GetResponse.failure_message)
-  return failure_message_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void Response_GetResponse::set_allocated_failure_message(std::string* failure_message) {
-  if (failure_message != nullptr) {
-    
-  } else {
-    
-  }
-  failure_message_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), failure_message,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:communication.Response.GetResponse.failure_message)
-}
-inline std::string* Response_GetResponse::unsafe_arena_release_failure_message() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:communication.Response.GetResponse.failure_message)
-  GOOGLE_DCHECK(GetArena() != nullptr);
-  
-  return failure_message_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      GetArena());
-}
-inline void Response_GetResponse::unsafe_arena_set_allocated_failure_message(
-    std::string* failure_message) {
-  GOOGLE_DCHECK(GetArena() != nullptr);
-  if (failure_message != nullptr) {
-    
-  } else {
-    
-  }
-  failure_message_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      failure_message, GetArena());
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:communication.Response.GetResponse.failure_message)
 }
 
 // -------------------------------------------------------------------

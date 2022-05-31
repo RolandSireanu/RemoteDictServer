@@ -1,10 +1,11 @@
-# Build client library
-cmake -DBuildRemoteDictLib=On -DGenerateProto=On -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
-make all -j
-sudo make install 
+# Build instructions on Debian based systems:
+	1. sudo apt-get install protobuf-compiler
+	2. Go To common/ProtoBuffers 
+		- mkdir build && cd build
+		- cmake ..
+		- make all
+	3. Do the same for: remoteDictApi, remoteDictServer and clientApp
 
-
-# Build server
-cmake -DBuildServer=On -DGenerateProto=On ..
-make all -j
-
+# Usage instructions:
+	1. Start the remote dictionary server:
+	2. Link the remoteDictApi library into your project like I did in clientApp example

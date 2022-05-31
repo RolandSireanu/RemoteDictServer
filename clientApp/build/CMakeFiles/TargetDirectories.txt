@@ -1,3 +1,0 @@
-/home/roland/work/RemoteDictionary/RemoteDictionary/clientApp/build/CMakeFiles/ClientApplication.dir
-/home/roland/work/RemoteDictionary/RemoteDictionary/clientApp/build/CMakeFiles/edit_cache.dir
-/home/roland/work/RemoteDictionary/RemoteDictionary/clientApp/build/CMakeFiles/rebuild_cache.dir

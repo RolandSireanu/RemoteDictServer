@@ -47,42 +47,16 @@ namespace
 }
 
 struct sockaddr_in serverAddr;
-constexpr uint16_t SERVER_PORT = 60000;
-using SA = struct sockaddr;
-
-int getNewConnection()
-{
-    int sockfd, n;    
-    sockfd = socket(AF_INET, SOCK_STREAM, 0);
-    if(sockfd < 0)
-        throw std::runtime_error("Socket didn't get created !");
-
-    memset(&serverAddr, 0, sizeof(serverAddr));
-    serverAddr.sin_family = AF_INET;
-    //The htons() function makes sure that numbers are stored in memory in network byte order, which is with the most significant byte first.
-    serverAddr.sin_port = htons(SERVER_PORT);
-
-    if(inet_pton(AF_INET, "127.0.0.1", &serverAddr.sin_addr) <= 0)
-        throw std::runtime_error("inet_pton didn't reach a valid result ");
-
-    if(connect(sockfd, (SA*)&serverAddr, sizeof(serverAddr)) < 0)
-        throw std::runtime_error("Connection error");
-
-    return sockfd;
-}
-
 
 
 void RemoteDictApi::configure(const std::string& arg_ip, uint32_t arg_port)
 {
-    std::cout << "RemoteDictApi::configure" << std::endl;
     ip = arg_ip;
     port = arg_port;
 }
 
 bool RemoteDictApi::set(const std::string& arg_k, const std::string& arg_v)
-{
-    std::cout << "RemoteDictApi::set called \n" << std::endl;
+{    
     NewConnection con(ip.c_str(), port);
     int sock = con.getSocket();
     communication::Request tempReq;
@@ -90,18 +64,15 @@ bool RemoteDictApi::set(const std::string& arg_k, const std::string& arg_v)
     tempSetReq->set_key(arg_k);
     tempSetReq->set_value(arg_v);
     tempReq.set_allocated_set(tempSetReq);    
-    tempReq.set_requesttype(communication::Request::TypeOfRequest::Request_TypeOfRequest_SET_REQUEST);
-    std::cout <<"Sending protocol buffer " << std::endl;
-    ProtoInfrastructure::sendProtocolBuffer(sock, tempReq);
-    std::cout <<"Protocol buffer sent " << std::endl;
+    tempReq.set_requesttype(communication::Request::TypeOfRequest::Request_TypeOfRequest_SET_REQUEST);    
+    ProtoInfrastructure::sendProtocolBuffer(sock, tempReq);    
 
     communication::Response ret = ProtoInfrastructure::receiveProtoclBuffer<communication::Response>(sock);
     if(ret.responsetype() == communication::Response::TypeOfResponse::Response_TypeOfResponse_SET_RESPONSE
         && ret.setresp().success() == true)
         return true;
     else
-    {
-        std::cout << ret.setresp().failure_message() << std::endl;
+    {        
         return false;
     }
 }

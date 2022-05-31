@@ -37,8 +37,7 @@ namespace ProtoInfrastructure
                 {
                     bytesSentSoFar += result;
                 }
-
-                //std::cout << "Send " << bytesSentSoFar << " bytes over socket " << std::endl;        
+                
             } while (bytesSentSoFar < lengthOfTheMessage);
 
             return sentOk;
@@ -107,8 +106,7 @@ namespace ProtoInfrastructure
         do
         {                                                    
             bytesReadSoFar += read(arg_socket, receiveBuffer+bytesReadSoFar, nrOfBytesToRead - bytesReadSoFar);            
-        } while ((nrOfBytesToRead - bytesReadSoFar) > 0);              
-        // std::cout << "Message read finished " << std::endl;
+        } while ((nrOfBytesToRead - bytesReadSoFar) > 0);        
 
         T result;
         result.ParseFromArray(receiveBuffer, nrOfBytesToRead);

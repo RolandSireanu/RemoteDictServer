@@ -73,8 +73,7 @@ communication::Response RemoteDictionary::get(const std::string& key)
 
     getOperations++;
     if(it != std::end(buckets[position]))
-    {
-        std::cout << "[RemoteDictionary] Key found , value " << std::get<1>(*it) << " " << std::get<0>(*it) << std::endl;
+    {        
         getResp->set_success(true);
         getResp->set_value(std::get<1>(*it));
         successfulGetOperations++;
